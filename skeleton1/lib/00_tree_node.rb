@@ -44,18 +44,48 @@ class PolyTreeNode
     end
 
 
-    def bfs(target_val) #self = 1
-    return self if target_val == self.value #self.value == nil
-    result = []
-    self.children.each do |child| #children = 2, 3 ----> first child 2
-        result << child
+    def bfs(target_val)
+    new_arr = [self]
+    until new_arr.empty?
+
+        current = new_arr.shift
+        return current if current.value == target_val
+
+        current.children.each do |child|
+            new_arr << child
+        end
     end
-    if result.include?(target_val)
-        return self
+
+        nil
     end
-end
 end
 
+
+
+
+# def bfs (val)
+
+# queue = Myqqueue.new
+# queue.unqueue(self)
+# until queue.empty?
+#     current_node = queue.unqueue
+#     return current_node if current_node.value == val 
+#     current_node.children.each do |child|
+#     queue.enqueue(child)
+# end
+# end
+# nil 
+# end 
+
+# *enqueue(el)
+# arr << el
+# *unshift
+#add node to the queue (array)
+#loop until no nodes left/queue empty?
+# dequee from node check val of node if == val
+#return node if matches 
+#add node children to queue (array)
+#return nil
 
 #           1
 
